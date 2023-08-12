@@ -1,0 +1,11 @@
+{
+  "name": "random-case-convertor/",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "shadow-cljs": "2.25.2"
+  },
+  "dependencies": {
+    "react-dom": "^18.2.0"
+  }
+}
