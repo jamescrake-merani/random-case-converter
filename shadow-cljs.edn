@@ -3,12 +3,24 @@
  ["src"]
 
  :dependencies
- [[reagent "1.2.0"]]
+ [[reagent "1.2.0"]
+  [com.teknql/shadow-cljs-tailwind-jit "1.0.0"]]
 
  :dev-http {8080 "out/"}
 
  :builds
- {:app {:output-dir "out/"
+ {:app {
+        :dev
+        {:build-hooks
+         [(teknql.tailwind/start-watch!)]}
+        :release
+        {:build-hooks
+         [(teknql.tailwind/compile-release!)]}
+        :output-dir "out/"
+        :tailwind/output "out/styles.css"
+        :tailwind/files
+        {:base-path "."
+         :tailwind.css "styles.css"}
         :asset-path "."
         :target :browser
         :modules {:main {:init-fn random-case-convertor.main/render}}}}}
