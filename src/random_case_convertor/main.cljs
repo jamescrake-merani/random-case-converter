@@ -16,10 +16,22 @@
 
 (ns random-case-convertor.main
   [:require [reagent.core :as r]
-   [reagent.dom :as rd]])
+   [reagent.dom :as rd]
+   [clojure.string :as s]])
+
+(defn random-char-case [c]
+  (if (= (Math/round (rand)) 0)
+    (s/upper-case c)
+    (s/lower-case c)))
+
+(defn convert-to-random-case [to-convert]
+  (apply str (map random-char-case to-convert)))
 
 (defn base []
-  [:h1 "Placeholder"])
+  [:div.container.mx-auto.my-4
+   [:h1.text-center.text-2xl.font-bold "Random Case Converter"]
+   [:input.input.input-bordered]
+   [:div.bg-blue-200 ]])
 
 (defn render
   []
