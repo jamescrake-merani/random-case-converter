@@ -28,10 +28,13 @@
   (apply str (map random-char-case to-convert)))
 
 (defn base []
-  [:div.container.mx-auto.my-4
-   [:h1.text-center.text-2xl.font-bold "Random Case Converter"]
-   [:input.input.input-bordered]
-   [:div.bg-blue-200 ]])
+  (let [to-convert (r/atom "")]
+    (fn []
+      [:div.container.mx-auto.my-4
+       [:h1.text-center.text-2xl.font-bold "Random Case Converter"]
+       [:input.input.input-bordered {:on-change #(reset! to-convert (-> % .-target .-value)) :value @to-convert} ]
+       [:input.input.input-bordered {:readonly true :value (convert-to-random-case @to-convert)}]
+       [:div.bg-blue-200 ]])))
 
 (defn render
   []
