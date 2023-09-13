@@ -37,7 +37,7 @@
     (fn []
       [:div.container.mx-auto.my-4
        [:h1.text-center.text-2xl.font-bold "Random Case Converter"]
-       [:div.flex.space-x-2.py-4
+       [:div.flex.space-x-2.py-4.flex-col.md:flex-row
         [entry-box @to-convert #(reset! to-convert (-> % .-target .-value))]
         [entry-box (convert-to-random-case @to-convert) #(.showModal (.getElementById js/document "oi-modal"))]]
        [:dialog {:id "oi-modal" :className "modal"}
