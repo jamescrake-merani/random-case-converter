@@ -14,7 +14,7 @@
 ;;    You should have received a copy of the GNU General Public License
 ;;    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-(ns random-case-convertor.main
+(ns random-case-converter.main
   [:require [reagent.core :as r]
    [reagent.dom :as rd]
    [clojure.string :as s]])

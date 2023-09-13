@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["src/random_case_convertor/main.cljs"],
+  content: ["src/random_case_converter/main.cljs"],
   theme: {
     extend: {},
   },

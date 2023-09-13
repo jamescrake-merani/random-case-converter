@@ -23,4 +23,4 @@
          :tailwind.css "styles.css"}
         :asset-path "."
         :target :browser
-        :modules {:main {:init-fn random-case-convertor.main/render}}}}}
+        :modules {:main {:init-fn random-case-converter.main/render}}}}}
