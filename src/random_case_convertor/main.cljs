@@ -45,7 +45,9 @@
         [:div.modal-box
          [:p.py-4 "Oi! You're not supposed to edit this box!"]]
         [:form {:method "dialog" :className "modal-backdrop"}
-         [:button "close"]]]])))
+         [:button "close"]]]
+       [:a.link {:href "https://github.com/jamescrake-merani/random-case-convertor"}
+        "Source Code"]])))
 
 (defn render
   []
