@@ -28,7 +28,7 @@
   (apply str (map random-char-case to-convert)))
 
 (defn entry-box [value on-change]
-  [:textarea.textarea.textarea-bordered.flex-1
+  [:textarea.textarea.textarea-bordered.flex-1.m-3
    {:on-change on-change
     :value value} ])
 
@@ -37,7 +37,7 @@
     (fn []
       [:div.container.mx-auto.my-4
        [:h1.text-center.text-2xl.font-bold "Random Case Converter"]
-       [:div.flex.space-x-2.py-4.flex-col.md:flex-row
+       [:div.flex.py-4.flex-col.md:flex-row
         [entry-box @to-convert #(reset! to-convert (-> % .-target .-value))]
         [entry-box (convert-to-random-case @to-convert) #(.showModal (.getElementById js/document "oi-modal"))]]
        [:dialog {:id "oi-modal" :className "modal"}
