@@ -39,8 +39,12 @@
        [:h1.text-center.text-2xl.font-bold "Random Case Converter"]
        [:div.flex
         [entry-box @to-convert #(reset! to-convert (-> % .-target .-value))]
-        [entry-box (convert-to-random-case @to-convert) #(js/alert "Oi! You're not meant to edit this box!")]]
-       [:div.bg-blue-200 ]])))
+        [entry-box (convert-to-random-case @to-convert) #(.showModal (.getElementById js/document "oi-modal"))]]
+       [:dialog {:id "oi-modal" :className "modal"}
+        [:div.modal-box
+         [:p.py-4 "Oi! You're not supposed to edit this box!"]]
+        [:form {:method "dialog" :className "modal-backdrop"}
+         [:button "close"]]]])))
 
 (defn render
   []
