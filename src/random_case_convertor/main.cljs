@@ -27,13 +27,19 @@
 (defn convert-to-random-case [to-convert]
   (apply str (map random-char-case to-convert)))
 
+(defn entry-box [value on-change]
+  [:textarea.textarea.textarea-bordered.flex-1
+   {:on-change on-change
+    :value value} ])
+
 (defn base []
   (let [to-convert (r/atom "")]
     (fn []
       [:div.container.mx-auto.my-4
        [:h1.text-center.text-2xl.font-bold "Random Case Converter"]
-       [:input.input.input-bordered {:on-change #(reset! to-convert (-> % .-target .-value)) :value @to-convert} ]
-       [:input.input.input-bordered {:readonly true :value (convert-to-random-case @to-convert)}]
+       [:div.flex
+        [entry-box @to-convert #(reset! to-convert (-> % .-target .-value))]
+        [entry-box (convert-to-random-case @to-convert) #(js/alert "Oi! You're not meant to edit this box!")]]
        [:div.bg-blue-200 ]])))
 
 (defn render
